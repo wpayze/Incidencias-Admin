@@ -1,0 +1,48 @@
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class="bg-dark text-white border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">Incidencias VLC</div>
+    <div class="list-group list-group-flush">
+      <a routerLink="/dashboard" routerLinkActive="active"
+        class="list-group-item list-group-item-action bg-dark text-white">Dashboard</a>
+      <a routerLink="/users" routerLinkActive="active"
+        class="list-group-item list-group-item-action bg-dark text-white">Usuarios</a>
+      <a routerLink="/issues" routerLinkActive="active"
+        class="list-group-item list-group-item-action bg-dark text-white">Incidencias</a>
+      <a routerLink="/categories" routerLinkActive="active"
+        class="list-group-item list-group-item-action bg-dark text-white">Categorías</a>
+      <a routerLink="/states" routerLinkActive="active"
+        class="list-group-item list-group-item-action bg-dark text-white">Estados</a>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <div class="container-fluid">
+        <div class="navbar-brand">{{pageTitle}}</div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fas fa-user"></i> User
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

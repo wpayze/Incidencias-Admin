@@ -1,0 +1,38 @@
+#wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar-wrapper {
+  min-width: 250px;
+  max-width: 250px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+#page-content-wrapper {
+  flex: 1;
+  width: 100%;
+}
+
+#menu-toggle {
+  margin-right: 10px;
+}
+
+.sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.list-group-item:hover {
+  background-color: #495057;
+}
+
+.list-group-item.active {
+  background-color: #343a40 !important;
+  color: #fff !important;
+}
