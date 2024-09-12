@@ -1,0 +1,33 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar-graph {
+  grid-column: span 2;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.pie-chart {
+  width: 200px;
+  height: 200px;
+}
+
+.bar-chart {
+  width: 550px;
+  height: 350px;
+}

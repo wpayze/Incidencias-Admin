@@ -1,1 +1,29 @@
-<p>dashboard works!</p>
+<div class="grid-container">
+  <div class="grid-item">
+    <canvas
+      baseChart
+      class="pie-chart"
+      [data]="pieChartData1"
+      [options]="pieChartOptions"
+      [type]="pieChartType"
+    ></canvas>
+  </div>
+  <div class="grid-item">
+    <canvas
+      baseChart
+      class="pie-chart"
+      [data]="pieChartData2"
+      [options]="pieChartOptions"
+      [type]="pieChartType"
+    ></canvas>
+  </div>
+  <div class="grid-item bar-graph">
+    <canvas
+      baseChart
+      class="bar-chart"
+      [data]="barChartData"
+      [options]="barChartOptions"
+      [type]="barChartType"
+    ></canvas>
+  </div>
+</div>

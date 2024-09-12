@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Editar Categoría' : 'Crear Nueva Categoría' }}</h2>
+
+  @if (errorMessage) {
+  <div class="alert alert-danger">{{ errorMessage }}</div>
+  }
+
+  <div class="mb-3">
+    <input type="text" [(ngModel)]="category.name" placeholder="Category Name" class="form-control" />
+    <button (click)="saveCategory()" class="btn btn-primary mt-2">{{ isEditMode ? 'Editar Categoría' : 'Crear Nueva
+      Categoría' }}</button>
+    <button (click)="goBack()" class="btn btn-secondary mt-2">Regresar</button>
+  </div>
+</div>

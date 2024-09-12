@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <h2>Usuarios</h2>
+  <p>Esta página es para manejar los usuarios del sistema. Aquí puedes ver la lista de usuarios, agregar nuevos, o
+    editar los existentes.</p>
+
+  @if (errorMessage) {
+  <div class="alert alert-danger">{{ errorMessage }}</div>
+  }
+
+  <div class="mb-3">
+    <button (click)="navigateToCreate()" class="btn btn-primary mt-2">Agregar Nuevo Usuario</button>
+  </div>
+
+  <ul class="list-group">
+    @for (user of users; track user) {
+    <li class="list-group-item">
+      {{ user.name }}
+      <button class="btn btn-sm btn-secondary float-end" (click)="navigateToEdit(user.id)">Editar</button>
+    </li>
+    }
+  </ul>
+</div>

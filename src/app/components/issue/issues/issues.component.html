@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <h2>Incidencias</h2>
+  <p>Esta página es para manejar las incidencias reportadas en el sistema. Aquí puedes ver la lista de incidencias,
+    agregar nuevas o editar las existentes.</p>
+
+  @if (errorMessage) {
+  <div class="alert alert-danger">{{ errorMessage }}</div>
+  }
+
+  <div class="mb-3">
+    <button (click)="navigateToCreate()" class="btn btn-primary mt-2">Agregar Nueva Incidencia</button>
+  </div>
+
+  <ul class="list-group">
+    @for (issue of issues; track issue) {
+    <li class="list-group-item">
+      <a href="javascript:void(0)" (click)="navigateToIssueDetail(issue.id)" class="text-decoration-none">
+        {{ issue.title }}
+      </a>
+      <button class="btn btn-sm btn-secondary float-end" (click)="navigateToEdit(issue.id)">Editar</button>
+    </li>
+    }
+  </ul>
+</div>

@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <h2>Detalles de la Incidencia</h2>
+
+  @if (issue) {
+    <div class="mb-3">
+      <strong>Título:</strong> {{ issue.title }}
+    </div>
+    <div class="mb-3">
+      <strong>Descripción:</strong> {{ issue.description }}
+    </div>
+    <div class="mb-3">
+      <strong>Dirección:</strong> {{ issue.address }}
+    </div>
+    <div class="mb-3">
+      <strong>Categoría:</strong> {{ issue.category.name }}
+    </div>
+    <div class="mb-3">
+      <strong>Estado:</strong> {{ issue.status.name }}
+    </div>
+    <div class="mb-3">
+      <strong>Creado por:</strong> {{ issue.user.name }} ({{ issue.user.email }})
+    </div>
+    <div class="mb-3">
+      <strong>Imagen:</strong>
+      @if (issue.imageUrl) {
+        <img [src]="getImageUrl(issue.imageUrl)" alt="Imagen de la incidencia" class="img-fluid">
+      }
+    </div>
+    <div class="mb-3">
+      <strong>Comentarios:</strong>
+      <ul class="list-group">
+        @for (comment of issue.comments; track comment) {
+          <li class="list-group-item">
+            <strong>{{ comment.user.name }}:</strong> {{ comment.content }}
+            @if (comment.parentId) {
+              <div class="ml-4">
+                <em>Respuesta a comentario {{ comment.parentId }}</em>
+              </div>
+            }
+            <small class="text-muted">Creado el: {{ comment.createdAt }}</small>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+  @else {
+    <div class="text-center">
+      <p>Cargando incidencia...</p>
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  }
+</div>

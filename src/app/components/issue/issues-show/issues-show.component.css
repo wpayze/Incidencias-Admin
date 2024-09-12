@@ -1,0 +1,77 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0056b3;
+}
+
+/* Estilos para la imagen */
+.img-fluid {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los detalles en grid */
+.mb-3 {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.mb-3 strong {
+  color: #0056b3;
+  font-weight: bold;
+}
+
+/* Estilos para la lista de comentarios */
+.list-group-item {
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background-color: #fafafa;
+}
+
+.list-group-item strong {
+  color: #333;
+}
+
+.list-group-item .text-muted {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.875rem;
+  color: #888;
+}
+
+/* Estilos para alertas y mensajes */
+.alert {
+  font-size: 1rem;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.text-center {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+}

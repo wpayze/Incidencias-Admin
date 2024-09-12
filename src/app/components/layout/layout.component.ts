@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { filter } from 'rxjs/operators';
 export class LayoutComponent {
   pageTitle = 'Dashboard';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.router.events
@@ -21,6 +22,10 @@ export class LayoutComponent {
       .subscribe(() => {
         this.updatePageTitle();
       });
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 
   updatePageTitle(): void {
@@ -38,7 +43,7 @@ export class LayoutComponent {
       case currentRoute.includes('/categories'):
         this.pageTitle = 'Categorías';
         break;
-      case currentRoute.includes('/states'):
+      case currentRoute.includes('/statuses'):
         this.pageTitle = 'Estados';
         break;
       default:

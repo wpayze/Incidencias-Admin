@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h2>Estados</h2>
+  <p>Esta página es para manejar los estados de las incidencias, los cuales representan la etapa en la que se encuentran. Los estados pueden ser: creada, en proceso, resolviendo, cerrada, entre otros.</p>
+
+  @if (errorMessage) {
+  <div class="alert alert-danger">{{ errorMessage }}</div>
+  }
+
+  <div class="mb-3">
+    <button (click)="navigateToCreate()" class="btn btn-primary mt-2">Agregar Nuevo</button>
+  </div>
+
+  <ul class="list-group">
+    @for (status of statuses; track status) {
+    <li class="list-group-item">
+      {{ status.name }}
+      <button class="btn btn-sm btn-secondary float-end" (click)="navigateToEdit(status.id)">Editar</button>
+    </li>
+    }
+  </ul>
+</div>

@@ -7,11 +7,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = environment.apiUrl;
+  private apiUrl = `${environment.apiUrl}`;
   private isLoggedIn = false;
-  private userRole: string | null = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.isLoggedIn = true;
+    }
+  }
 
   login(email: string, password: string): Observable<boolean> {
     const url = `${this.apiUrl}/auth/login`;
@@ -23,7 +27,6 @@ export class AuthService {
         if (response && response.token && response.user.role === 'ADMIN') {
           localStorage.setItem('token', response.token);
           this.isLoggedIn = true;
-          this.userRole = response.user.role;
           return true;
         } else {
           return false;
@@ -36,15 +39,10 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token');
     this.isLoggedIn = false;
-    this.userRole = null;
   }
 
   isAuthenticated(): boolean {
     return this.isLoggedIn;
-  }
-
-  getUserRole(): string | null {
-    return this.userRole;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

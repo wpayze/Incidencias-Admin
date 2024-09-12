@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h2>Categorías</h2>
+  <p>Esta página es para manejar las categorías de las incidencias, permitiendo definir los tipos de problemas que pueden surgir. Las categorías pueden ser: ruido, basura, tráfico, entre otros.</p>
+
+  @if (errorMessage) {
+    <div class="alert alert-danger">{{ errorMessage }}</div>
+  }
+
+  <div class="mb-3">
+    <button (click)="navigateToCreate()" class="btn btn-primary mt-2">Agregar Nueva</button>
+  </div>
+
+  <ul class="list-group">
+    @for (category of categories; track category) {
+      <li class="list-group-item">
+        {{ category.name }}
+        <button class="btn btn-sm btn-secondary float-end" (click)="navigateToEdit(category.id)">Editar</button>
+      </li>
+    }
+  </ul>
+</div>
